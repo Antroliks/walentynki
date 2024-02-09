@@ -11,6 +11,7 @@
     background-image: url('tlo.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
   }
   #question {
     margin-top: 50px;
@@ -26,6 +27,13 @@
   .message-box {
     display: none;
     margin-top: 20px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    /* Dodajemy regułę dla ekranów o szerokości do 600px, czyli dla telefonów */
+    body {
+      background-size: auto 100%;
+    }
   }
 </style>
 </head>
