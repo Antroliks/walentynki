@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zostań moją walentynką!</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('tlo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #question {
+    margin-top: 50px;
+  }
+  #buttons {
+    margin-top: 20px;
+  }
+  #yes, #no {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .message-box {
+    display: none;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<img id="valentineImage" src="obraz.png" alt="Obrazek">
+<div id="question">
+  <p>Czy chcesz zostać moją walentynką?</p>
+</div>
+<div id="buttons">
+  <button id="yes" onclick="showMessage()">Tak</button>
+  <button id="no" onclick="moveButton()">Nie</button>
+</div>
+
+<div class="message-box" id="messageBox">
+  <p>Teraz krótki teścik czy ty to ty ❤️</p>
+  <button onclick="dalej()">Idę dalej</button>
+  <button onclick="cancel()">Nie, rezygnuję</button>
+</div>
+
+<script>
+  function moveButton() {
+    var button = document.getElementById("no");
+    var newX = Math.random() * (window.innerWidth - button.offsetWidth);
+    var newY = Math.random() * (window.innerHeight - button.offsetHeight);
+    button.style.position = "absolute";
+    button.style.left = newX + "px";
+    button.style.top = newY + "px";
+  }
+
+  function showMessage() {
+    var messageBox = document.getElementById("messageBox");
+    messageBox.style.display = "block";
+  }
+
+  function dalej() {
+    window.location.href = "pytanie1.html";
+  }
+
+  function cancel() {
+    var messageBox = document.getElementById("messageBox");
+    messageBox.style.display = "none";
+  }
+</script>
+</body>
+</html>

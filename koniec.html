@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gratulacje!</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('tlo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .centered-text {
+    text-align: center;
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+  }
+  .heart-img {
+    position: absolute;
+    width: 50px;
+    animation: falling 5s linear infinite;
+  }
+  @keyframes falling {
+    0% { top: -50px; opacity: 0; }
+    100% { top: 100%; opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <div class="centered-text">
+    <h1>Gratulacje!</h1>
+    <p>Zostałaś walentynką najlepszego chłopaka na świecie!!!</p>
+  </div>
+  <!-- Dodanie serc -->
+  <!-- Używamy JavaScriptu do generowania losowych pozycji dla każdego serca -->
+  <script>
+    window.onload = function() {
+      const hearts = document.querySelectorAll('.heart-img');
+      hearts.forEach(function(heart) {
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+      });
+    };
+  </script>
+  <script>
+    for (let i = 0; i < 200; i++) {
+      const heart = document.createElement('img');
+      heart.setAttribute('src', 'serce.png');
+      heart.setAttribute('alt', 'Serce');
+      heart.classList.add('heart-img');
+      heart.style.top = -Math.random() * 100 + 'px'; // Ustawienie początkowych współrzędnych top poza ekranem
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pytanie 3</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('tlo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #password-form {
+    margin-top: 100px;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto; /* Centrujemy formularz na stronie */
+  }
+  input[type="text"], input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%; /* Rozciągamy pola tekstowe na całą szerokość formularza */
+    box-sizing: border-box; /* Uwzględniamy padding w szerokości */
+  }
+  input[type="submit"], input[type="button"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 100%; /* Rozciągamy przycisk na całą szerokość formularza */
+  }
+</style>
+</head>
+<body>
+  <form id="password-form" onsubmit="checkPassword(event)">
+    <p>Co pisało na twoim torcie urodzinowym?</p>
+    <input type="password" id="password" placeholder="Wprowadź odpowiedź">
+    <input type="button" onclick="togglePassword()" value="Pokaż/ukryj hasło">
+    <br>
+    <br>
+    <input type="submit" value="Zatwierdź">
+  </form>
+
+  <script>
+    function checkPassword(event) {
+      event.preventDefault(); // Zapobiega domyślnej akcji formularza (czyli przeładowaniu strony)
+      var password = document.getElementById("password").value;
+      // Tutaj możesz dodać swoje własne warunki sprawdzające poprawność odpowiedzi
+      if (password.toLowerCase() === "dancing queen young & sweet only 17") { // Zmień "kolor_prezentow" na prawidłową odpowiedź
+        window.location.href = "koniec.html"; // Przekieruj użytkownika do odpowiedniej strony
+      } else {
+        alert("Nieprawidłowa odpowiedź!"); // Wyświetl komunikat o nieprawidłowej odpowiedzi
+      }
+    }
+
+    function togglePassword() {
+      var passwordInput = document.getElementById("password");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+  </script>
+</body>
+</html>

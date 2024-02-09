@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pytanie 2</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('tlo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #password-form {
+    margin-top: 100px;
+    background-color: rgba(255, 255, 255, 0.8); /* Dodajemy przezroczyste tło dla formularza */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto; /* Centrujemy formularz na stronie */
+  }
+  #question-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  #question {
+    margin-bottom: 10px;
+  }
+  input[type="text"], input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%; /* Rozciągamy pola tekstowe na całą szerokość formularza */
+    box-sizing: border-box; /* Uwzględniamy padding w szerokości */
+  }
+  input[type="submit"], input[type="button"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 100%; /* Rozciągamy przycisk na całą szerokość formularza */
+  }
+</style>
+</head>
+<body>
+  <div id="password-form">
+    <img id="question-image" src="pytanie2.png" alt="Pytanie 2">
+    <p id="question">Gdzie zostało wykonane to zdjęcie?</p>
+    <input type="password" id="password" placeholder="Wprowadź odpowiedź">
+    <input type="button" onclick="togglePassword()" value="Pokaż/ukryj hasło">
+    <br>
+    <br>
+    <input type="button" value="Zatwierdź" onclick="checkPassword()">
+  </div>
+
+  <script>
+    function adjustQuestionSize() {
+      var questionImage = document.getElementById("question-image");
+      var questionForm = document.getElementById("password-form");
+      var height = questionImage.clientHeight;
+      questionForm.style.height = height + "px";
+    }
+
+    window.onload = adjustQuestionSize;
+
+    function checkPassword() {
+      var password = document.getElementById("password").value;
+      // Tutaj możesz dodać swoje własne warunki sprawdzające poprawność odpowiedzi
+      if (password.toLowerCase() === "brennej") { // Zmień "kolor_prezentow" na prawidłową odpowiedź
+        window.location.href = "pytanie3.html"; // Przekieruj użytkownika do odpowiedniej strony
+      } else {
+        alert("Nieprawidłowa odpowiedź!"); // Wyświetl komunikat o nieprawidłowej odpowiedzi
+      }
+    }
+
+    function togglePassword() {
+      var passwordInput = document.getElementById("password");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+  </script>
+</body>
+</html>
